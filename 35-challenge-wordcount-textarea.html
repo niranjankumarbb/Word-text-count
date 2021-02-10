@@ -1,0 +1,90 @@
+
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <div id = 'root'>
+
+        </div>
+        <script src = "C:\Users\Niranjan\jan-2020-mern\reactjs\js\react.development.js"></script>
+
+        <script src = "C:\Users\Niranjan\jan-2020-mern\reactjs\js\react-dom.development.js"></script>
+
+        <script src = "C:\Users\Niranjan\jan-2020-mern\reactjs\js\babel.js"></script>
+
+        <script type ="text/babel"> 
+
+        
+            const rootHandle = document.getElementById('root')
+
+            class WordCount extends React.Component {
+                 constructor(){
+                     super()
+                     this.state ={
+                         characters : '',
+                         characterCount : 0,
+                         wordCount      :0
+
+                     }
+                 }
+
+
+                 handleChange = (e)=>{
+                     const characters = e.target.value 
+                     var arr = []
+                        arr  = characters.split(' ')
+                     //   console.log(arr)
+                      var wordCount = arr.length -1
+                       var characterCount = 0
+                       for( const ch of characters){
+                           
+                               characterCount++
+
+                        }
+                     this.setState(prevState=> {
+
+                         return {
+                             characters,
+                             characterCount,  
+                             wordCount
+                         }
+                     })
+                 }
+
+   
+
+
+                 render(){
+                     console.log(this.state)
+                     return(
+                         <div>
+                           <h2> Word Count</h2>
+                           <textarea value={this.state.characters} onChange= {this.handleChange}/> 
+                           <h3>{`You have written ${this.state.wordCount} words and ${this.state.characterCount} characters`} </h3>
+                         
+                         
+                         </div>
+
+
+                     )
+                 }
+
+            }
+
+        
+            ReactDOM.render(<WordCount/>,rootHandle)
+
+
+
+           
+        </script>
+
+    </body>
+</html>
+
+
+
+
+
+
